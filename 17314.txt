@@ -1,0 +1,79 @@
+public class Car {
+    private String model;
+    private double price;
+    private String year;
+
+    public Car(String model, double price, String year){
+        this.model = model;
+        this.price = price;
+        this.year = year;
+    }
+
+    public Car(){}
+
+    public String toString(){
+        return "Car model: " + this.model + " ,price: " + this.price + " and year" + this.year;
+    }
+
+    public String getModel(){
+        return model;
+    }
+
+    public void setModel(String model){
+        this.model = model;
+    }
+
+    public double getPrice(){
+        return price;
+    }
+
+    public void setPrice(double price){
+        this.price = price;
+    }
+
+    public String getYear(){
+        return year;
+    }
+
+    public void setYear(String year){
+        this.year = year;
+    }
+}
+
+
+import java.util.Arrays;
+
+public class Cars{
+     private Car[] cars;
+     private int max;
+     private int index = 0;
+
+    public Cars(){
+        this.cars = null;
+    }
+
+    public void addCar(Car car){
+        if(cars.length < max){
+            cars[index] = car;
+            index++;
+        }
+    }
+
+    public void input(){
+        this.max = 8;
+        this.cars = new Car[max];
+    }
+
+    public String toString(){
+        return "Your cars: " + Arrays.toString(cars) + " ";
+    }
+
+
+    public void deleteModel(String model){
+        for(Car car: cars){
+            if(car.getModel() == model){
+                car.setModel(null);
+            }
+        }
+    }
+}
